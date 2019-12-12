@@ -13,5 +13,23 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/bibliotheque-security</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="bibliotheque-library@localhost" uuid="baab9fa6-a904-44f2-8602-42a712686449">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bibliotheque-library</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="bibliotheque-book@localhost" uuid="46fba8a6-1ffc-4deb-802b-6e02e0bb02f4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bibliotheque-book</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="bibliotheque-borrow@localhost" uuid="a68aba3a-7148-4dd1-94a6-9db79b85dbce">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bibliotheque-borrow</jdbc-url>
+    </data-source>
   </component>
 </project>
