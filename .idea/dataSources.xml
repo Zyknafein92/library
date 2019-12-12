@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/bibliotheque-user</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="bibliotheque-security@localhost" uuid="d9d24ec7-ca8b-4088-a471-58002669f9a3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bibliotheque-security</jdbc-url>
+    </data-source>
   </component>
 </project>
