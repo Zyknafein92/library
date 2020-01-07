@@ -1,4 +1,4 @@
-package com.library.borrowmicroservice;
+package com.library.borrowmicroservice.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ public class Borrow {
     private Long id;
 
     @Column(name="user_id")
-    private String userID; //todo : Voir avec l'id seulement si ca passe (Alexandre a dit vas-y test !!! xD)
+    private String userID;
 
     @Column(name="book_id")
     private String bookID;

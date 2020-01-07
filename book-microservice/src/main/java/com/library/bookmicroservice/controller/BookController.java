@@ -31,6 +31,13 @@ public class BookController {
         return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/api/book/searchBook", method = RequestMethod.GET)
+    public ResponseEntity<List<Book>> searchBook(@RequestParam(name = "criteria", defaultValue = "") String criteria) {
+        List<Book> searchResult = bookService.searchBooks(criteria);
+        if( searchResult == null) return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(searchResult, HttpStatus.ACCEPTED);
+    }
+
     @RequestMapping(value = "/api/book/addBook", method = RequestMethod.POST)
     public ResponseEntity<Book> createBook(@RequestBody BookDTO bookDTO) {
         Book bookToCreate = bookService.createBook(bookDTO);

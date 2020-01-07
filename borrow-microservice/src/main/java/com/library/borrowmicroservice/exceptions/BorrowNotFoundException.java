@@ -1,12 +1,11 @@
-package com.library.bookmicroservice.services;
+package com.library.borrowmicroservice.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class BookNotFoundException extends RuntimeException {
-
-    public BookNotFoundException(String message) {
+public class BorrowNotFoundException extends RuntimeException {
+    public BorrowNotFoundException(String message) {
         super(message);
     }
 }

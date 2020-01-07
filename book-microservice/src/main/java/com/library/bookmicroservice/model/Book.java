@@ -1,10 +1,14 @@
 package com.library.bookmicroservice.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -18,39 +22,40 @@ public class Book {
     @Column(name = "book_id")
     private Long id;
 
-
+    @NotNull
     @Column(name = "title")
     private String title;
 
+    @NotNull
     @Column(name = "author")
     private String author;
 
+    @NotNull
+    @Size(max = 5000)
     @Column(name = "description")
     private String description;
 
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date parution;
+
+    @NotNull
     @Column(name = "gender")
     private String gender;
 
+    @NotNull
     @Column(name = "picture")
     private String picture;
 
+    @NotNull
     @Column(name = "avaible")
     private Boolean avaible;
 
+    @NotNull
     @Column(name = "library_ID")
     private String LibraryID;
 
     public Book() {
-    }
-
-    public Book(String title, String author, String description, String gender, String picture, Boolean avaible, String libraryID) {
-        this.title = title;
-        this.author = author;
-        this.description = description;
-        this.gender = gender;
-        this.picture = picture;
-        this.avaible = avaible;
-        this.LibraryID = libraryID;
     }
 
 }

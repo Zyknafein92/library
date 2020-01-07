@@ -13,10 +13,7 @@ import java.util.Set;
 public class UserDTO {
 
     private Long id;
-
     private String email;
-
     private String password;
-
     private Set<Role> roles;
 }
