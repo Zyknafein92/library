@@ -36,6 +36,10 @@ public class Book {
     private String description;
 
 
+    @Column(name= "editor")
+    private String editor;
+
+
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date parution;
 

@@ -13,5 +13,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("select distinct b from Book b where b.title like :criteria or b.author like :criteria or b.gender like :criteria")
     List<Book> searchBook(@Param("criteria") String criteria);
+   //to lowercase -> voir la recherche Query.
 
 }

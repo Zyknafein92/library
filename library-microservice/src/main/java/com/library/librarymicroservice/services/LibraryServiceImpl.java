@@ -53,9 +53,7 @@ public class LibraryServiceImpl implements LibraryService {
     public void updateLibrary(LibraryDTO libraryDTO) {
 
         Library library = getLibrary(libraryDTO.getId());
-
         if(library == null) throw new LibraryNotFoundException(" La bibliothèque n'existe pas.");
-
         libraryMapper.updateLibraryFromLibraryDTO(libraryDTO,library);
         libraryRepository.save(library);
 

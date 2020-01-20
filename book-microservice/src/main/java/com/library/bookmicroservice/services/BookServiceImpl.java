@@ -41,7 +41,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book createBook(BookDTO bookDTO) {
-
+     //todo null pour editeur
         if (bookDTO.getLibraryID() == null) {
             throw new BookCreationException("Veuillez renseigner l'ID de la librairie");
         }

@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @Table(name= "borrow", schema="public")
 public class Borrow {
 
+    // Données nécessaires supplémentaires : nom, prénom, email, titre du livre,
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name ="borrow_id")
@@ -24,12 +26,15 @@ public class Borrow {
     private String bookID;
 
     @Column(name="date_start_borrow")
+    @Temporal(TemporalType.DATE)
     private LocalDateTime dateStart;
 
     @Column(name="date_end")
+    @Temporal(TemporalType.DATE)
     private LocalDateTime dateEnd;
 
     @Column(name="date_extend")
+    @Temporal(TemporalType.DATE)
     private LocalDateTime dateExtend;
 
     @Column(name="is_extend")
