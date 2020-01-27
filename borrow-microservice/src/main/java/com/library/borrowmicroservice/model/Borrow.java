@@ -1,19 +1,22 @@
 package com.library.borrowmicroservice.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
 @Table(name= "borrow", schema="public")
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Borrow {
-
-    // Données nécessaires supplémentaires : nom, prénom, email, titre du livre,
-
+    
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name ="borrow_id")
@@ -25,18 +28,19 @@ public class Borrow {
     @Column(name="book_id")
     private String bookID;
 
-    @Column(name="date_start_borrow")
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime dateStart;
+    @Column(name="date_start")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date dateStart;
 
     @Column(name="date_end")
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime dateEnd;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date dateEnd;
 
     @Column(name="date_extend")
-    @Temporal(TemporalType.DATE)
-    private LocalDateTime dateExtend;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date dateExtend;
 
     @Column(name="is_extend")
     private Boolean isExtend;
+
 }

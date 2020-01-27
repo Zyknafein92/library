@@ -22,10 +22,16 @@ public class BorrowServiceImpl implements BorrowService {
 
 
     @Override
-    //Retrouver tous les emprunts d'un utilisateur
-    public List<Borrow> findBorrowById (Long userID) {
-        return borrowRepository.findAllById(userID);
+    public List<Borrow> getAllBorrows () {
+        return borrowRepository.findAll();
     }
+
+    public List<Borrow> getOutDatedBorrow(){
+        //todo condition vérif ?
+        List<Borrow> borrows = borrowRepository.findAllBorrowOutDated();
+        return borrows;
+    }
+
 
     @Override
     public Borrow getBorrow(Long id) {
@@ -37,6 +43,7 @@ public class BorrowServiceImpl implements BorrowService {
 
     @Override
     public Borrow createBorrow(BorrowDTO borrowDTO) {
+
 
         borrowDTO.setDateStart(LocalDateTime.now());
         borrowDTO.setDateEnd(LocalDateTime.now().plusDays(28));
@@ -50,15 +57,6 @@ public class BorrowServiceImpl implements BorrowService {
 
         borrowDTO.setIsExtend(false);
         Borrow borrow = borrowMapper.borrowDtoToBorrow(borrowDTO);
-        return borrowRepository.save(borrow);
-    }
-
-    @Override
-    public Borrow extendBorrow(Long id) {
-        Borrow borrow = getBorrow(id);
-        if(borrow == null) throw new BorrowNotFoundException("Erreur lors de la mise à jour : le prêt n'existe pas ou n'a pas été retrouvé");
-        if(borrow.getIsExtend()) throw new BorrowCreationException("Le prêt a déjà été étendu");
-        borrow.setIsExtend(true);
         return borrowRepository.save(borrow);
     }
 

@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface BorrowService {
 
-    List<Borrow> findBorrowById(Long id);
+    List<Borrow> getAllBorrows();
+
+    List<Borrow> getOutDatedBorrow();
 
     Borrow getBorrow(Long id);
 
     Borrow createBorrow(BorrowDTO borrowDTO);
-
-    Borrow extendBorrow(Long id);
 
     void updateBorrow(BorrowDTO borrowDTO);
 

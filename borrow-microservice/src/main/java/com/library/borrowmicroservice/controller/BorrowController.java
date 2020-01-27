@@ -19,9 +19,10 @@ public class BorrowController {
 
 
     @GetMapping(value = "/api/borrow/getAll")
-    public List<Borrow> findBorrowById(@PathVariable Long id) {
-        return null;  // todo : implémenter la querry sql
+    public List<Borrow> findBorrowById() {
+        return borrowService.getAllBorrows();
     }
+
 
     @GetMapping(value = "/api/borrow/getBorrow")
     public ResponseEntity<Borrow> getBorrow(@RequestParam(name = "id", defaultValue = "")  String id) {
@@ -36,12 +37,6 @@ public class BorrowController {
         return new ResponseEntity<>(borrow,HttpStatus.OK);
     }
 
-    @PutMapping(value="/api/borrow/extendBorrow")
-    public ResponseEntity<Borrow> extendBorrow(@RequestParam(name = "id", defaultValue = "")  String id) {
-        Borrow borrow = borrowService.extendBorrow(Long.valueOf(id));
-        if(borrow == null) return ResponseEntity.noContent().build();
-        return new ResponseEntity<>(borrow, HttpStatus.OK);
-    }
 
     @PutMapping(value="/api/borrow/updateBorrow")
     public ResponseEntity<Void> updateBorrow(@RequestBody BorrowDTO borrowDTO) {
