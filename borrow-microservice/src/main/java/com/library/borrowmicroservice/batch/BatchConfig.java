@@ -30,7 +30,7 @@ public class BatchConfig {
     EmailConfig emailConfig;
 
 //    @Scheduled(cron= "0 0 0 * * *") //tous les jours à minuit.
-//    @Scheduled(fixedDelay = 60000) // toutes les minutes
+//    @Scheduled(fixedDelay = 60000) // toutes les minutes pour démo.
     public void runBatch() {
 
         borrowsOutDated =  getAllBorrowsOutdated();

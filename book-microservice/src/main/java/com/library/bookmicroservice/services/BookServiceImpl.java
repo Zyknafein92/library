@@ -25,7 +25,7 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAll();
     }
 
-    //todo: Service + Controller pour distinctAllBook avec modif à faire dans le front page : search.
+    //todo: Service + Controller pour distinctAllBook avec modif à faire dans le front page : search (si nécessaire)
 
     @Override
     public List<Book> searchBooks(String criteria) {
