@@ -11,8 +11,12 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query("select distinct b from Book b where b.title like :criteria or b.author like :criteria or b.gender like :criteria")
+    @Query(value = "select distinct on (b.title) b.* from Book b " +
+            "where lower(b.title) like lower(concat('%', :criteria, '%')) " +
+            "or lower(b.author) like lower(concat('%',:criteria, '%')) " +
+            "or lower(b.gender) like lower(concat('%',:criteria, '%'))", nativeQuery = true)
     List<Book> searchBook(@Param("criteria") String criteria);
-   //to lowercase -> voir la recherche Query.
 
+    @Query(value = "select distinct on (b.title) b.* from Book b ",nativeQuery = true)
+    List<Book> findDistinctByTitle();
 }

@@ -29,8 +29,8 @@ public class BatchConfig {
     @Autowired
     EmailConfig emailConfig;
 
-
-    @Scheduled(fixedDelay = 60000)
+//    @Scheduled(cron= "0 0 0 * * *") //tous les jours à minuit.
+//    @Scheduled(fixedDelay = 60000) // toutes les minutes
     public void runBatch() {
 
         borrowsOutDated =  getAllBorrowsOutdated();
@@ -38,12 +38,8 @@ public class BatchConfig {
         if(borrowsOutDated.size() > 0) {
 
             for (Borrow borrow : borrowsOutDated) {
-                System.out.println("Book to search:" + borrow.getBookID());
-                System.out.println("User to search:" +borrow.getUserID());
                 user = DatabaseConnect.getUserFromDB(borrow.getUserID());
                 book = DatabaseConnect.getBookFromDB(borrow.getBookID());
-                System.out.println("Book to search:" + book);
-                System.out.println("User to search:" + user);
                 email = createEmailInformations(user,book,borrow);
 
                 if(email.getIsExtend()) emailConfig.sendEmailwithoutExtension(email);
@@ -55,10 +51,6 @@ public class BatchConfig {
     }
 
     private Email createEmailInformations (User user, Book book, Borrow borrow) {
-
-        System.out.println("User :" + user);
-        System.out.println("Book :" +book);
-        System.out.println("Borrow: " +borrow);
 
         Email emailToSend = new Email();
 
@@ -72,34 +64,6 @@ public class BatchConfig {
 
         return emailToSend;
     }
-
-
-//    private List<Mail> createMailInformations (List<User> users, List<Book> books, List<Borrow> borrowsOutDated) {
-//
-//        System.out.println("Users :" + users);
-//        System.out.println("Books :" +books);
-//        System.out.println("Borrows: " +borrowsOutDated);
-//
-//
-//        for(int i = 0; i < borrowsOutDated.size(); i++) {
-//            Mail mail = new Mail();
-//
-//            mail.setFirstName(users.get(i).getFirstName());
-//            mail.setLastName(users.get(i).getLastName());
-//            mail.setEmailUser(users.get(i).getEmail());
-//            mail.setBookTitle(books.get(i).getTitle());
-//            mail.setIsExtend(borrowsOutDated.get(i).getIsExtend());
-//            mail.setDateEnd(borrowsOutDated.get(i).getDateEnd());
-//            mail.setDateExtend(borrowsOutDated.get(i).getDateExtend());
-//            emailToSend.add(mail);
-//        }
-//
-//        return emailToSend;
-//    }
-
-
-
-
 
     public List<Borrow> getAllBorrowsOutdated () {
         return borrowService.getOutDatedBorrow();

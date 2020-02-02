@@ -32,6 +32,11 @@ public class BorrowServiceImpl implements BorrowService {
         return borrows;
     }
 
+    @Override
+    public List<Borrow> getMyBorrows(String id) {
+        return borrowRepository.findAllByUserID(id);
+    }
+
 
     @Override
     public Borrow getBorrow(Long id) {

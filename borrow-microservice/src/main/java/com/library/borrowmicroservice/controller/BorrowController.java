@@ -19,10 +19,14 @@ public class BorrowController {
 
 
     @GetMapping(value = "/api/borrow/getAll")
-    public List<Borrow> findBorrowById() {
+    public List<Borrow> getBorrowById() {
         return borrowService.getAllBorrows();
     }
 
+    @GetMapping(value= "/api/borrow/getMyBorrows")
+    public List<Borrow> getMyBorrows(@RequestParam(name = "userID", defaultValue = "") String userID) {
+        return borrowService.getMyBorrows(userID);
+    }
 
     @GetMapping(value = "/api/borrow/getBorrow")
     public ResponseEntity<Borrow> getBorrow(@RequestParam(name = "id", defaultValue = "")  String id) {

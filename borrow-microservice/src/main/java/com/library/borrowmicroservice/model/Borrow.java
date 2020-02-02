@@ -29,18 +29,17 @@ public class Borrow {
     private String bookID;
 
     @Column(name="date_start")
-    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-
+    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "CET", locale = "fr-FR")
     @Temporal(TemporalType.DATE)
     private Date dateStart;
 
     @Column(name="date_end")
-    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "CET", locale = "fr-FR")
     @Temporal(TemporalType.DATE)
     private Date dateEnd;
 
     @Column(name="date_extend")
-    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "CET", locale = "fr-FR")
     @Temporal(TemporalType.DATE)
     private Date dateExtend;
 

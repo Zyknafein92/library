@@ -40,7 +40,7 @@ public class Book {
     private String editor;
 
 
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd", timezone = "CET", locale = "fr-FR")
     private Date parution;
 
     @NotNull

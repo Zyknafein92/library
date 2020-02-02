@@ -10,6 +10,8 @@ public interface BorrowService {
 
     List<Borrow> getOutDatedBorrow();
 
+    List<Borrow> getMyBorrows(String id);
+
     Borrow getBorrow(Long id);
 
     Borrow createBorrow(BorrowDTO borrowDTO);
@@ -17,4 +19,5 @@ public interface BorrowService {
     void updateBorrow(BorrowDTO borrowDTO);
 
     void deleteBorrow(Long id);
+
 }
