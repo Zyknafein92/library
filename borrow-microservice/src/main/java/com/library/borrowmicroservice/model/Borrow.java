@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -22,27 +23,33 @@ public class Borrow {
     @Column(name ="borrow_id")
     private Long id;
 
+    @NotNull(message= "Veuillez renseigner l'ID de l'utilisateur !")
     @Column(name="user_id")
     private String userID;
 
+    @NotNull(message= "Veuillez renseigner l'ID du livre !")
     @Column(name="book_id")
     private String bookID;
 
     @Column(name="date_start")
+    @NotNull(message= "Veuillez renseigner une date d'emprunt !")
     @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "CET", locale = "fr-FR")
     @Temporal(TemporalType.DATE)
     private Date dateStart;
 
     @Column(name="date_end")
+    @NotNull(message= "Veuillez renseigner une date de retour !")
     @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "CET", locale = "fr-FR")
     @Temporal(TemporalType.DATE)
     private Date dateEnd;
 
     @Column(name="date_extend")
+    @NotNull(message= "Veuillez renseigner une date d'extention d'emprunt' !")
     @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.STRING, timezone = "CET", locale = "fr-FR")
     @Temporal(TemporalType.DATE)
     private Date dateExtend;
 
+    @NotNull(message= "Veuillez renseigner le champ d'extention d'emprunt !")
     @Column(name="is_extend")
     private Boolean isExtend;
 

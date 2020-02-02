@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 public class BatchConfig {
-    //todo : retirer spring batch du pom
+
     List<Borrow> borrowsOutDated = new ArrayList<>();
     Email email = new Email();
     User user = new User();
@@ -29,8 +29,8 @@ public class BatchConfig {
     @Autowired
     EmailConfig emailConfig;
 
-//    @Scheduled(cron= "0 0 0 * * *") //tous les jours à minuit.
-//    @Scheduled(fixedDelay = 60000) // toutes les minutes pour démo.
+    //@Scheduled(cron= "0 0 0 * * *") //tous les jours à minuit.
+    //@Scheduled(fixedDelay = 60000) // toutes les minutes pour démo.
     public void runBatch() {
 
         borrowsOutDated =  getAllBorrowsOutdated();

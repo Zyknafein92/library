@@ -1,6 +1,6 @@
 package com.library.gateway.services;
 
-import com.library.gateway.exceptions.UserCreationException;
+
 import com.library.gateway.exceptions.UserNotFoundException;
 import com.library.gateway.model.Role;
 import com.library.gateway.model.RoleName;
@@ -32,20 +32,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(Long id) {
         User user = userRepository.getOne(id);
-        if(user == null) throw new UserNotFoundException(" L'utilisateur n'existe pas");
         return user;
     }
 
     @Override
     public User createUser(UserDTO userDTO) {
-
-        if( userDTO.getEmail() == null ) {
-            throw new UserCreationException("Veuillez à renseigner un Email ");
-        }
-
-        if( userDTO.getPassword() == null ) {
-            throw new UserCreationException(" Veuillez rajouter un password");
-        }
 
         if( userDTO.getRoles() == null ) {
             Set<Role> roles = new HashSet<>();
@@ -62,8 +53,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(UserDTO userDTO) {
-        User user = userRepository.getOne(userDTO.getId());
+        User user = getUser(userDTO.getId());
         if(user == null) throw new UserNotFoundException(" L'utilisateur n'existe pas");
+        userDTO.setPassword(encoder.encode(userDTO.getPassword()));
         userMapper.updateUserFromUserDTO(userDTO, user);
         userRepository.save(user);
     }

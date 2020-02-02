@@ -22,7 +22,7 @@ public class EmailConfig {
 
         message.setTo(email.getEmailUser());
         message.setSubject("Emprunt arrivé a échèance");
-        message.setText("A l'attention de " + email.getFirstName() + " " + email.getLastName() + ".\n\n  L'emprunt du livre < " + email.getBookTitle() + " > est arrivé à terme depuis le " + dateFormat.format(email.getDateEnd()) + ". Nous vous prions de bien vouloir le restituer le plus rapidement possible à sa bibliothèque d'origine ou de signaler le prolongement de votre emprunt.\n\n Bien Cordialement,") ;
+        message.setText("A l'attention de " + email.getFirstName() + " " + email.getLastName() + ".\n\n  L'emprunt du livre \" " + email.getBookTitle() + " \" est arrivé à terme depuis le " + dateFormat.format(email.getDateEnd()) + ". Nous vous prions de bien vouloir le restituer le plus rapidement possible à sa bibliothèque d'origine ou de signaler le prolongement de votre emprunt.\n\n Bien Cordialement,") ;
         javaMailSender.send(message);
     }
 
@@ -33,7 +33,7 @@ public class EmailConfig {
 
         message.setTo(email.getEmailUser());
         message.setSubject("Emprunt arrivé a échèance");
-        message.setText("A l'attention de " + email.getFirstName() + " " + email.getLastName() +".\n\n  L'emprunt du livre < " + email.getBookTitle() + " > est arrivé à terme depuis le " + dateFormat.format(email.getDateEnd()) + ". Nous vous prions de bien vouloir le restituer le plus rapidement possible à sa bibliothèque d'origine.\n\n Bien Cordialement,") ;
+        message.setText("A l'attention de " + email.getFirstName() + " " + email.getLastName() +".\n\n  L'emprunt du livre \" " + email.getBookTitle() + " \" est arrivé à terme depuis le " + dateFormat.format(email.getDateEnd()) + ". Nous vous prions de bien vouloir le restituer le plus rapidement possible à sa bibliothèque d'origine.\n\n Bien Cordialement,") ;
         javaMailSender.send(message);
     }
 }

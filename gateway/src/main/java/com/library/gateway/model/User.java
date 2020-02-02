@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Getter
@@ -19,9 +20,11 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
-    @Column(name = "email")
+    @NotNull(message= "Veuillez renseigner un email !")
+    @Column(name = "email", unique = true)
     private String email;
 
+    @NotNull(message= "Veuillez renseigner un password !")
     @Column(name = "password")
     private String password;
 
