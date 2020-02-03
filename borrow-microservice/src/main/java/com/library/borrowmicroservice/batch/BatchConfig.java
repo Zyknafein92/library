@@ -6,11 +6,10 @@ import com.library.borrowmicroservice.model.Borrow;
 import com.library.borrowmicroservice.model.Email;
 import com.library.borrowmicroservice.model.User;
 import com.library.borrowmicroservice.services.BorrowService;
+import com.library.borrowmicroservice.services.DatabaseConnect;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 

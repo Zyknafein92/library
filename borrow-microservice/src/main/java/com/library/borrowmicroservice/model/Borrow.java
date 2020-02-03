@@ -28,7 +28,7 @@ public class Borrow {
     private String userID;
 
     @NotNull(message= "Veuillez renseigner l'ID du livre !")
-    @Column(name="book_id")
+    @Column(name="book_id", unique = true)
     private String bookID;
 
     @Column(name="date_start")

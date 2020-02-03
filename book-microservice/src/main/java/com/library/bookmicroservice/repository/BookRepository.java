@@ -17,6 +17,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             "or lower(b.gender) like lower(concat('%',:criteria, '%'))", nativeQuery = true)
     List<Book> searchBook(@Param("criteria") String criteria);
 
-    @Query(value = "select distinct on (b.title) b.* from Book b ",nativeQuery = true)
+    @Query(value = "select distinct on (b.title) b.* from Book b " ,nativeQuery = true)
     List<Book> findDistinctByTitle();
 }

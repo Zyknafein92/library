@@ -24,6 +24,13 @@ public class BookController {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping(value= "api/book/getAllDistinctTitle")
+    public ResponseEntity<List<Book>> getBooksByDistinctTitle() {
+        List<Book> books = bookService.getBooksDistinctsTitle();
+        if (books == null) return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/api/book/getBook", method = RequestMethod.GET)
     public ResponseEntity<Book> getBook(@RequestParam(name = "id", defaultValue = "") String id) {
         Book book = bookService.getBook(Long.valueOf(id));

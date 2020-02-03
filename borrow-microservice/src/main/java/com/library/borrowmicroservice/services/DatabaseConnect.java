@@ -1,4 +1,4 @@
-package com.library.borrowmicroservice.batch;
+package com.library.borrowmicroservice.services;
 
 import com.library.borrowmicroservice.model.Book;
 import com.library.borrowmicroservice.model.User;
@@ -25,7 +25,7 @@ public class DatabaseConnect {
         try (Connection connection = DriverManager.getConnection(DB_BOOK_URL, USER, PASS)) {
             Class.forName(JDBC_DRIVER);
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("Select b.book_id, b.title, b.library_id from public.book b where b.book_id in (" + bookID + ")");
+            ResultSet rs = statement.executeQuery("Select b.book_id, b.title from public.book b where b.book_id in (" + bookID + ")");
             while (rs.next()) {
                 book.setId(rs.getLong("book_id"));
                 book.setTitle(rs.getString("title"));
