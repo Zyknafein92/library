@@ -48,6 +48,14 @@ public class BorrowController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PutMapping(value="/api/borrow/updateBorrowStatus")
+    public ResponseEntity<Void> updateBorrowExtendStatus(@RequestParam(name = "id") String id) {
+        if(id != null && !id.isEmpty()){
+            borrowService.updateBorrowExtendStatus(Long.valueOf(id));
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping(value="/api/borrow/deleteBorrow")
     public ResponseEntity<Void> deleteBorrow(@RequestParam(name = "id", defaultValue = "")  String id) {
         Borrow borrow = borrowService.getBorrow(Long.valueOf(id));

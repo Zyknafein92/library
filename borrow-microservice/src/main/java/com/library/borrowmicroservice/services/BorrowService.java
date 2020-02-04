@@ -18,6 +18,8 @@ public interface BorrowService {
 
     void updateBorrow(BorrowDTO borrowDTO);
 
+    void updateBorrowExtendStatus(Long id);
+
     void deleteBorrow(Long id);
 
 }

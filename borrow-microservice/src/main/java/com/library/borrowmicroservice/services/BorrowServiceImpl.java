@@ -57,6 +57,13 @@ public class BorrowServiceImpl implements BorrowService {
     }
 
     @Override
+    public void updateBorrowExtendStatus(Long id) {
+        Borrow borrow = getBorrow(id);
+        borrow.setIsExtend(true);
+        borrowRepository.save(borrow);
+    }
+
+    @Override
     public void deleteBorrow(Long id) {
         borrowRepository.deleteById(id);
     }
