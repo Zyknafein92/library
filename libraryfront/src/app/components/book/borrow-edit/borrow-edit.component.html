@@ -50,7 +50,7 @@
 
         </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary" [disabled]="this.forms.get('userID').invalid || this.forms.get('bookID').invalid">Save</button>
 
       </form>
     </div>

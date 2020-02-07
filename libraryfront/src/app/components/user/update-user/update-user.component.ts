@@ -58,7 +58,7 @@ export class UpdateUserComponent implements OnInit {
     this.userService.updateUser(this.forms)
       .subscribe(
         response => {
-          this.initform();
+          this.userService.getProfil(this.forms.value.email);
         },
         err => {
           console.log('Error: ', err.error.message);

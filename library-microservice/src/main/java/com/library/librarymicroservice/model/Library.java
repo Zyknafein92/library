@@ -34,10 +34,4 @@ public class Library {
     public Library() {
     }
 
-    public Library(String name, String address, String phone) {
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-    }
-
 }

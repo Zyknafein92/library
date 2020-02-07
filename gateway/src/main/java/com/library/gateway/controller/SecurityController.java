@@ -29,8 +29,6 @@ public class SecurityController {
     private UserService userService;
 
 
-
-
     @RequestMapping(value = "/api/security/getUser", method = RequestMethod.GET)
     public ResponseEntity<User> getUser(@RequestParam(name = "id", defaultValue = "")  String id) {
         User user = userService.getUser(Long.valueOf(id));

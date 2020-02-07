@@ -6,7 +6,6 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface LibraryMapper {
 
-    LibraryDTO librabyToLibraryDTO(Library library);
     Library librabyDtoToLibrary(LibraryDTO libraryDTO);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,

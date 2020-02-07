@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class LibraryController {
+
     @Autowired
     private LibraryService libraryService;
-
 
     @GetMapping(value = "/api/library/getAll")
     public ResponseEntity<List<Library>> getLibrarys() {

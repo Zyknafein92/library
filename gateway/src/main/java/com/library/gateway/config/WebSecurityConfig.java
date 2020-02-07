@@ -26,6 +26,7 @@ import javax.ws.rs.HttpMethod;
         prePostEnabled = true
 )
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
@@ -69,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         // Allow eureka client to be accessed without authentication
         web.ignoring().antMatchers("/*/")
                 .antMatchers("/eureka/**")
