@@ -6,8 +6,8 @@ import com.library.borrowmicroservice.model.Borrow;
 import com.library.borrowmicroservice.model.Email;
 import com.library.borrowmicroservice.model.User;
 import com.library.borrowmicroservice.services.BorrowService;
-import com.library.borrowmicroservice.services.DatabaseConnect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -29,10 +29,10 @@ public class BatchConfig {
     EmailConfig emailConfig;
 
     //@Scheduled(cron= "0 0 0 * * *") //tous les jours à minuit.
-    //@Scheduled(fixedDelay = 60000) // toutes les minutes pour démo.
+    @Scheduled(fixedDelay = 120000) // toutes les 2 minutes pour démo.
     public void runBatch() {
 
-        borrowsOutDated =  getAllBorrowsOutdated();
+        borrowsOutDated =  getAllBorrowsOutDated();
 
         if(borrowsOutDated.size() > 0) {
 
@@ -41,12 +41,16 @@ public class BatchConfig {
                 book = DatabaseConnect.getBookFromDB(borrow.getBookID());
                 email = createEmailInformations(user,book,borrow);
 
-                if(email.getIsExtend()) emailConfig.sendEmailwithoutExtension(email);
-                else emailConfig.sendEmailwithExtension(email);
+                if(email.getIsExtend()) emailConfig.sendEmailwithExtension(email);
+                else emailConfig.sendEmailwithoutExtension(email);
             }
 
         }
 
+    }
+
+    private List<Borrow> getAllBorrowsOutDated () {
+        return borrowService.getOutDatedBorrow();
     }
 
     private Email createEmailInformations (User user, Book book, Borrow borrow) {
@@ -62,10 +66,6 @@ public class BatchConfig {
         emailToSend.setDateExtend(borrow.getDateExtend());
 
         return emailToSend;
-    }
-
-    public List<Borrow> getAllBorrowsOutdated () {
-        return borrowService.getOutDatedBorrow();
     }
 
 }

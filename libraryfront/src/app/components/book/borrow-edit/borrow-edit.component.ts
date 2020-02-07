@@ -83,13 +83,16 @@ export class BorrowEditComponent implements OnInit {
       this.borrowService.saveBorrow(this.forms).subscribe(
         () => {
           this.updateAvaibleStatus();
-          this.router.navigate(['admin']);
+          this.bookService.getBooks().subscribe( res => {
+            this.router.navigate(['admin']);
+          });
         });
     } else {
       this.borrowService.updateBorrow(this.borrow).subscribe(
         () => {
-          this.updateAvaibleStatus();
-          this.router.navigate(['admin']);
+          this.bookService.getBooks().subscribe( res => {
+            this.router.navigate(['admin']);
+          });
         });
     }
   }
@@ -124,13 +127,13 @@ export class BorrowEditComponent implements OnInit {
     this.borrow.dateExtend = new Date(this.forms.value.dateExtend);
   }
 
-  //todo : a corriger
+
   updateAvaibleStatus() {
     this.bookService.getBook(this.forms.value.bookID).subscribe(
       data => {
         this.book = data;
         this.bookService.updateBookStatus(this.book).subscribe( res => {
-          this.initBooks();
+          this.bookService.getBooks().subscribe();
         });
       });
   }

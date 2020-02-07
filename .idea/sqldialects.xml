@@ -2,6 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/book-microservice/src/main/java/com/library/bookmicroservice/repository/BookRepository.java" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/borrow-microservice/src/main/java/com/library/borrowmicroservice/services/DatabaseConnect.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/borrow-microservice/src/main/java/com/library/borrowmicroservice/batch/DatabaseConnect.java" dialect="PostgreSQL" />
   </component>
 </project>

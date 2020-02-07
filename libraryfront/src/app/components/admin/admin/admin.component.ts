@@ -94,6 +94,13 @@ export class AdminComponent implements OnInit {
   }
 
   deleteBorrow(id: number) {
+    let borrow = this.borrows.find(value => value.id == id);
+    let book = this.books.find(value => ""+value.id == borrow.bookID);
+    console.log("book to find: ", book);
+    this.bookService.updateBookStatus(book).subscribe(next => {
+      this.initBooks();
+    });
+
     this.borrowService.deleteBorrow(id).subscribe(
       next => {
         this.initBorrows();

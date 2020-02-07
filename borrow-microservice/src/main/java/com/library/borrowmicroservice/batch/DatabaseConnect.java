@@ -1,4 +1,4 @@
-package com.library.borrowmicroservice.services;
+package com.library.borrowmicroservice.batch;
 
 import com.library.borrowmicroservice.model.Book;
 import com.library.borrowmicroservice.model.User;

@@ -15,6 +15,7 @@ import {BorrowEditComponent} from './components/book/borrow-edit/borrow-edit.com
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path:  'search', component: SearchBookComponent},
   { path: 'book', component: ViewBookComponent},
