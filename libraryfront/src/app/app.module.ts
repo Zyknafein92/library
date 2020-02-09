@@ -22,7 +22,7 @@ import { BookEditComponent } from './components/book/book-edit/book-edit.compone
 import { LibraryEditComponent } from './components/library/library-edit/library-edit.component';
 import { BorrowEditComponent } from './components/book/borrow-edit/borrow-edit.component';
 import { AdminComponent } from './components/admin/admin/admin.component';
-import {CardModule, CarouselModule} from "primeng";
+
 
 
 
@@ -52,8 +52,6 @@ import {CardModule, CarouselModule} from "primeng";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CarouselModule,
-    CardModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

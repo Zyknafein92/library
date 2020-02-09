@@ -40,8 +40,8 @@ public class BorrowServiceImpl implements BorrowService {
     @Override
     public Borrow createBorrow(BorrowDTO borrowDTO) {
         borrowDTO.setDateStart(LocalDateTime.now());
-        borrowDTO.setDateEnd(LocalDateTime.now().plusDays(30));
-        borrowDTO.setDateExtend(LocalDateTime.now().plusDays(60));
+        borrowDTO.setDateEnd(LocalDateTime.now().plusDays(28));
+        borrowDTO.setDateExtend(LocalDateTime.now().plusDays(56));
         borrowDTO.setIsExtend(false);
         Borrow borrow = borrowMapper.borrowDtoToBorrow(borrowDTO);
         return borrowRepository.save(borrow);
