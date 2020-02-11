@@ -19,8 +19,8 @@ Application Web APIREST pour les utilisateurs des bibliothèques d'une grande vi
 Technologies employées
 ----------------------
 Langage :
--Java 8
--TypeScript
+- Java 8
+- TypeScript
 
 Front : 
 - Angular
