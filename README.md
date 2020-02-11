@@ -1,7 +1,7 @@
 Projet n°7 pour OpenClassrooms
 
-Licence : license libre
-Auteur : Jérôme Deneux
+- Licence : license libre
+- Auteur : Jérôme Deneux
 
 ---------------------
 Description du projet
