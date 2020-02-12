@@ -64,10 +64,16 @@ Installation et utilisation de l’application
 
 Sur votre IDE
 -------------
-
--	Extraire le fichier .zip
--	Ouvrez votre IDE, et importez le projet.
--	Importez si nécessaire les fichiers avec Maven.
+-	Ouvrez votre IDE, et importez le projet extrait depuis le fichier .zip ou clonez le fichier depuis le repository :  https://github.com/Zyknafein92/library
+-	Importez les fichiers avec Maven.
+- Lancez "npm install" dans le terminal du micro-service "libraryfront"
+- Rendez-vous dans << Project Structure >>
+- Allez dans l'onglet module
+- Selectionnez l'un des micro-services
+- Allez dans l'onglet source
+- Cliquez sur "Add Content Root"
+- Selectionnez le fichier correspondant au nom du micro-service sélectionné
+-
 -	Lancez « eurekamicroservice»
 -	Lancez « gatewaymicroservice »
 -	Lancez « bookmicroservice »
