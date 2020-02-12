@@ -15,6 +15,12 @@ Application Web APIREST pour les utilisateurs des bibliothèques d'une grande vi
  
  - Réaliser un batch pour envoyer un email aux utilisateurs qui n'ont pas rendu les ouvrages dans le temps imparti à la fréquence d'une fois par jour.
  
+ ----------
+Pré-requis
+----------
+
+Vous devez posséder Java JRE version 8 ou supérieur sur votre machine pour pouvoir correctement utiliser l'application.
+ 
 ----------------------
 Technologies employées
 ----------------------
@@ -40,12 +46,6 @@ Base de données :
 
 Serveur d'application :
 Apache Tomcat v.9
-
-----------
-Pré-requis
-----------
-
-Pour utiliser correctement l'application, il vous faut avant tout restaurer la base de données (cf: Restaurer la base de données), et pouvoir lancer une application .jar.
 
 Restaurer la base de données
 ----------------------------
@@ -79,6 +79,13 @@ Sur votre IDE
 
 Deployer l'application 
 ----------------------
+
+Créez à l'aide de Maven ( Maven clean install package) ou importez les différents .jar des micro-services avec votre IDE.
+SpringBoot embarquant un serveur d'application TomCat, vous n'avez plus qu'a déployer les micro-services grâce à l'aide d'un éditeur de commande et la commande: java -jar nom_du_microservice.jar.
+
+/!\ Il est important de lancer le microservice " eureka-microservice " et " gateway-microservice " en premier, les autres micro-services ne requiert pas d'ordres précis. /!\
+
+
 
 
 
