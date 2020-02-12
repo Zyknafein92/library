@@ -10,10 +10,13 @@ import {Router} from '@angular/router';
 export class MenuComponent implements OnInit {
 
   authorities: string;
-  constructor(private token: TokenStorageService, private router: Router) { }
+  tokenEmail: string;
+
+  constructor(private token: TokenStorageService) { }
 
   ngOnInit() {
     this.authorities = this.token.getAuthorities();
+    this.tokenEmail = this.token.getEmail();
   }
 
   logout() {

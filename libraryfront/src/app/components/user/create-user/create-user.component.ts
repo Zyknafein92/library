@@ -46,7 +46,7 @@ export class CreateUserComponent implements OnInit {
       });
   }
 
- private saveUser() {
+  saveUser() {
     console.log(this.forms.value);
 
     this.authService.saveUser(this.forms)
